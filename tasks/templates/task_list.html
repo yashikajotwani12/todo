@@ -1,0 +1,46 @@
+<div class="container">
+    <h1 class="title">Task List</h1>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <div class="tasklist">
+        <ul class="items">
+            {% for task in tasks %}
+            <div class="itemelement">
+                <!-- give 1 2 3 4 ids to the tasks -->
+                <li class="taskid" id="{{ task.id }}">{{ task.id }}</li>
+                
+                <li class="item" {% if task.completed %} completed {% endif %}>
+                    <span class="item_text {% if task.completed %} completed {% endif %}">{{ task.title }}</span>
+                </li>
+                <div class="item_deletecomplete">
+                    <form action="{% url 'task_complete' task.pk %}" method="post">
+                        {% csrf_token %}
+                        {% if not task.completed %}
+                        <input type="submit" class="completebtn" value="Complete">
+                        {% else %}
+                        <span class="completebtn">Completed</span>
+                        {% endif %}
+                    </form>
+                    <form action="{% url 'task_delete' task.pk %}" method="post">
+                        {% csrf_token %}
+                        <input class="deletebtn" type="submit" value="Delete">
+                    </form>
+    
+                </div>
+
+            </div>
+
+            
+
+
+            </li>
+            {% endfor %}
+        </ul>
+        <a class="addtaskbtn" href="{% url 'task_create' %}">Add Task</a>
+
+
+    </div>
+
+
+</div>

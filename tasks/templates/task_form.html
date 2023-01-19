@@ -1,0 +1,21 @@
+<!-- task_form.html -->
+<div class="container">
+
+    <h1 class="title">Create New Tasks</h1>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+
+<div class="addtaskform">
+<form class="form" action="{% url 'task_create' %}" method="post">
+    {% csrf_token %}
+    <label class="form-title" for="title">Write a task:</label>
+    <input class="addtaskinput" type="text" id="title" name="title">
+    <input class="addtaskbtn"  type="submit" value="Add Task">
+</form>
+
+
+</div>
+
+
+</div>
