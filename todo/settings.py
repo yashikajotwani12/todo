@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-!pf9ev48$^mu!=8ysd$clus-4enkvi2#%fzee%n&_#ak^-cn%*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://todo-production-c20f.up.railway.app', '127.0.0.1']
+
 
 # Application definition
 
@@ -133,4 +134,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     'https://todo-production-c20f.up.railway.app/'
-    ]
+]
